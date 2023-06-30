@@ -18,7 +18,7 @@
           <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Get Started <span aria-hidden="true">&rarr;</span></a>
+          <router-link :to="{name: 'Login'}" class="text-sm font-semibold leading-6 text-gray-900">Get Started <span aria-hidden="true">&rarr;</span></router-link>
         </div>
       </nav>
       <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -40,7 +40,7 @@
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
               </div>
               <div class="py-6">
-                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Get Started</a>
+                <router-link :to="{name : 'Login'}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Get Started</router-link>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
                     <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Progress With TaskSet</h2>
                     <p class="mt-6 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
     
-                    <a href="#" title="" class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700" role="button">Get Started</a>
+                    <router-link :to="{name: 'Login'}" title="" class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-gray-800 rounded-md mt-9 hover:bg-gray-700 focus:bg-gray-700" role="button">Get Started</router-link>
                 </div>
             </div>
         </div>
