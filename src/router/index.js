@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import store from "../store";
 import Index from "../views/Index.vue";
 import Tasks from "../views/Tasks.vue";
+import TaskView from "../views/TaskView.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
@@ -36,6 +37,7 @@ const routes = [
         children: [
             { path: "/dashboard", name: "Dashboard", component: Dashboard },
             { path: "/tasks", name: "Tasks", component: Tasks },
+            { path: "/task/:id", name: "TaskView", component: TaskView },
         ]
     },
 

@@ -103,7 +103,7 @@
     </Disclosure>
 
     <router-view></router-view>
-
+    
   </div>
 </template>
   
@@ -113,6 +113,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { useStore } from "vuex";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+
 
 const details = {
   name: 'Tom Cook',

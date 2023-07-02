@@ -6,7 +6,23 @@ const store = createStore({
         user:{
             data:{},
             token: sessionStorage.getItem("TOKEN"),
-        },     
+        },    
+        
+        tasks:{
+            loading: false,
+            data: []
+        },
+
+        currentTask: {
+            loading: false,
+            data: []
+        },
+
+        notification: {
+            show: false,
+            type: null,
+            message: null
+          },      
         
     },
     getters:{},
@@ -37,6 +53,53 @@ const store = createStore({
               })
           },
 
+          saveTask({ commit }, task) {
+            commit("setTaskLoading", true);
+            return axiosClient.post("/task", task).then((res) => {
+                commit('setTask', res.data)
+                commit("setTaskLoading", false);
+                return res;
+              });
+          },
+
+          editTask({ commit, dispatch }, task) {  
+            commit("setTaskLoading", true);
+            return axiosClient.put(`/task/${task.id}`, task).then((res) => {
+              commit("setTaskLoading", false);
+                commit('setTask', res.data)
+                return res;
+              });
+          },
+
+          getTasks({ commit }) {
+            commit("setTaskLoading", true);
+            return axiosClient.get("/task").then((res) => {
+              commit("setTaskLoading", false);
+              commit("setTasks", res.data);
+              return res;
+            });
+          },
+
+          getTask({ commit }, id) {
+            return axiosClient
+              .get(`/task/${id}`)
+              .then((res) => {
+                commit("setTask", res.data);
+                return res;
+              })
+              .catch((err) => {
+                throw err;
+              });
+          },
+                   
+          deleteTask({ dispatch }, id) {
+            return axiosClient.delete(`/task/${id}`)
+            .then((res) => {
+              dispatch('getTasks')
+              return res;
+            });
+          },
+
     },
     mutations:{
         setUser: (state, user) => {
@@ -50,6 +113,27 @@ const store = createStore({
             state.user.token = null;
             state.user.data = {};
             sessionStorage.removeItem("TOKEN");
+          },
+
+          setTask: (state, task) => {
+            state.currentTask.data = task.data;
+          },
+
+          setTasks: (state, tasks) => {
+            state.tasks.data = tasks.data;
+          },
+
+           setTaskLoading: (state, loading) => {
+            state.currentTask.loading = loading;
+          },
+
+          notify:(state, {message, type}) =>{
+            state.notification.show = true;
+            state.notification.type = type;
+            state.notification.message = message;
+            setTimeout(() => {
+              state.notification.show = false;
+            }, 3000)
           },
     },
     modules:{}
