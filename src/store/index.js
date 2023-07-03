@@ -10,6 +10,7 @@ const store = createStore({
         
         tasks:{
             loading: false,
+            links: [],
             data: []
         },
 
@@ -23,6 +24,12 @@ const store = createStore({
             type: null,
             message: null
           },      
+
+          dashboard: {
+            loading: false,
+            data: {}
+          },
+  
         
     },
     getters:{},
@@ -71,9 +78,10 @@ const store = createStore({
               });
           },
 
-          getTasks({ commit }) {
+          getTasks({ commit }, {url = null} = {}) {
             commit("setTaskLoading", true);
-            return axiosClient.get("/task").then((res) => {
+            url = url || "/task";
+            return axiosClient.get(url).then((res) => {
               commit("setTaskLoading", false);
               commit("setTasks", res.data);
               return res;
@@ -100,6 +108,38 @@ const store = createStore({
             });
           },
 
+          completeTask({ dispatch }, id) {
+            return axiosClient.put(`/task/${id}/mark-completed`)
+            .then((res) => {
+              dispatch('getTasks')
+              return res;
+            });
+          },
+
+          incompleteTask({ dispatch }, id) {
+            return axiosClient.put(`/task/${id}/mark-incompleted`)
+            .then((res) => {
+              dispatch('getTasks')
+              return res;
+            });
+          },
+          
+          getDashboardData({commit}) {
+            commit('dashboardLoading', true)
+            return axiosClient.get(`/dashboard`)
+            .then((res) => {
+              commit('dashboardLoading', false)
+              commit('setDashboardData', res.data)
+              return res;
+            })
+            .catch(error => {
+              commit('dashboardLoading', false)
+              return error;
+            })
+      
+          },
+
+
     },
     mutations:{
         setUser: (state, user) => {
@@ -120,6 +160,7 @@ const store = createStore({
           },
 
           setTasks: (state, tasks) => {
+            state.tasks.links = tasks.meta.links;
             state.tasks.data = tasks.data;
           },
 
@@ -134,6 +175,13 @@ const store = createStore({
             setTimeout(() => {
               state.notification.show = false;
             }, 3000)
+          },
+
+           setDashboardData: (state, data) => {
+            state.dashboard.data = data
+          },
+          dashboardLoading: (state, loading) => {
+            state.dashboard.loading = loading;
           },
     },
     modules:{}
