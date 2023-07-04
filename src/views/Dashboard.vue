@@ -130,7 +130,7 @@
                   <!-- /latest task -->
 
                   <!-- chart -->
-                  <div class="order-6 lg:order-6 row-span-2 bg-white shadow-md p-3 text-center flex flex-col animate-fade-in-down" style="animation-delay: 0.2s">
+                  <!-- <div class="order-6 lg:order-6 row-span-2 bg-white shadow-md p-3 text-center flex flex-col animate-fade-in-down" style="animation-delay: 0.2s">
                     <h2 class="text-2xl mb-3 text-center font-semibold">Completion Status</h2>
                     <div
                       class="text-8xl pb-4 font-semibold flex-1 flex items-center justify-center w-full"
@@ -138,7 +138,7 @@
                     <Bar :data="chartData" />  
                     </div>
                               
-                  </div>
+                  </div> -->
                   <!-- /chart -->
             </div>
           </div> 
