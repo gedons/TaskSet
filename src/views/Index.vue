@@ -5,7 +5,7 @@
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <img class="h-8 w-auto" src="/task.svg" alt="" />
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -14,9 +14,9 @@
             <Bars3Icon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div class="hidden lg:flex lg:gap-x-12">
+        <!-- <div class="hidden lg:flex lg:gap-x-12">
           <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
-        </div>
+        </div> -->
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <router-link :to="{name: 'Login'}" class="text-sm font-semibold leading-6 text-gray-900">Get Started <span aria-hidden="true">&rarr;</span></router-link>
         </div>
@@ -27,7 +27,7 @@
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Your Company</span>
-              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+              <img class="h-8 w-auto" src="/task.svg" alt="" />
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
               <span class="sr-only">Close menu</span>
@@ -36,9 +36,9 @@
           </div>
           <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-gray-500/10">
-              <div class="space-y-2 py-6">
+              <!-- <div class="space-y-2 py-6">
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
-              </div>
+              </div> -->
               <div class="py-6">
                 <router-link :to="{name : 'Login'}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Get Started</router-link>
               </div>
@@ -57,7 +57,7 @@
     
                 <div class="text-center lg:text-left">
                     <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Progress With TaskSet</h2>
-                    <p class="mt-6 text-base text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                    <p class="mt-6 text-base text-gray-600">A simple task management application where users can create, update, and delete tasks. Implement features such as task assignments, due dates, priority levels, and task status.</p>
     
                     <router-link :to="{name: 'Login'}" title="" class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-gray-800 rounded-md mt-9 hover:bg-gray-700 focus:bg-gray-700" role="button">Get Started</router-link>
                 </div>

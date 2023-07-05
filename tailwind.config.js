@@ -6,13 +6,13 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes:{
+      keyframes: {
         'fade-in-down': {
           "from": {
             transform: "translateY(-0.75rem)",
             opacity: '0'
           },
-          "to":{
+          "to": {
             transform: "translateY(0rem)",
             opacity: '1'
           },
@@ -26,5 +26,4 @@ export default {
   plugins: [
     require('@tailwindcss/forms')
   ],
-  purge:[]
 }
