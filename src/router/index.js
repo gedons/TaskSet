@@ -7,6 +7,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import MainLayout from "../components/MainLayout.vue";
+import NotFound from "../views/NotFound.vue";
 
 
 const routes = [
@@ -41,7 +42,11 @@ const routes = [
         ]
     },
 
-
+    {
+      path: '/404',
+      name: 'NotFound',
+      component: NotFound
+    }
 ];
 
 
